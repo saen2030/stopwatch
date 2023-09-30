@@ -1,0 +1,14 @@
+.customMarginTop{
+    margin-top:20vh;
+}
+.btnWidth{
+    width:200px;
+    
+}
+
+.displayRow{
+    display: flex;
+    justify-content: center;
+    font-size: 15vw;
+
+}
