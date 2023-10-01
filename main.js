@@ -3,10 +3,10 @@ const displayMinute = document.getElementById("displayMinute");
 const displayMilSecond = document.getElementById("displayMilSecond");
 const maxLimit = 9;
 const lapTableBody = document.getElementById("tableBody");
-var intervalId=0;
+var intervalId = 0;
 
 const singleToDoubleDigitConverter = (digit) => {
-  if (digit.length == 1 ) {
+  if (digit.length == 1) {
     let doubleDigit = "0" + digit;
     return doubleDigit;
   } else {
@@ -14,28 +14,28 @@ const singleToDoubleDigitConverter = (digit) => {
   }
 };
 
-const deleteTableRows=(tableBody)=>{
-  let allBodyRows=Array.from(tableBody.children);
-  for(let i=0;i<allBodyRows.length;i++){
+const deleteTableRows = (tableBody) => {
+  let allBodyRows = Array.from(tableBody.children);
+  for (let i = 0; i < allBodyRows.length; i++) {
     allBodyRows[i].remove();
   }
 }
 
 var onClickStart = () => {
-  if(intervalId==0){
+  if (intervalId == 0) {
     intervalId = setInterval(startTimer, 10);
   }
 };
 
 var onClickStop = () => {
   clearInterval(intervalId);
-  intervalId=0;
+  intervalId = 0;
 };
 
 var onClickReset = () => {
   clearInterval(intervalId);
-  intervalId=0;
-  lapCount=0;
+  intervalId = 0;
+  lapCount = 0;
   displayMilSecond.innerText = "00";
   displaySecond.innerText = "00";
   displayMinute.innerText = "00";
@@ -85,21 +85,19 @@ var startTimer = () => {
   }
 };
 
-
-var spaceKeyToggler=true;
+var spaceKeyToggler = true;
 document.addEventListener(
   "keyup",
   (event) => {
     event.preventDefault();
     const keyName = event.key;
-    if (keyName === "s" && spaceKeyToggler==true ) {
-      spaceKeyToggler=false;
+    if (keyName === "s" && spaceKeyToggler == true) {
+      spaceKeyToggler = false;
       onClickStart();
-    }else if(keyName === "s" && spaceKeyToggler==false){
-      spaceKeyToggler=true;
+    } else if (keyName === "s" && spaceKeyToggler == false) {
+      spaceKeyToggler = true;
       onClickStop();
     }
-
     if (keyName === "r") {
       onClickReset();
     }

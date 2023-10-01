@@ -10,16 +10,22 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand mx-auto font-weight-bold" href="#">Stopwatch</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand font-weight-bold mx-auto" href="#" style="font-family: 'Press Start 2P', cursive;font-style: italic;">Stopwatch</a>
   </nav>
   <main>
-    <div class="container mt-5">  
+    <div class="container mt-5">
       <div class="row">
-        <div class="col-sm-12 bg-light mx-auto">
+        <div class="col-sm-12  mx-auto">
           <div class="displayRow">
             <div id="displayMinute">00</div>
             <div>:</div>
@@ -29,16 +35,22 @@
           </div>
           <div class="buttonRow justify-content-center">
             <button type="button" class="btn btn-primary mr-5 btnWidth" onclick="onClickStart()">
-              START
+              START &nbsp&nbsp
+              <img src="keyboard-key-s.png" alt="">
             </button>
             <button type="button" class="btn btn-secondary mr-5 btnWidth" onclick="onClickStop()">
-              STOP
+              STOP &nbsp&nbsp
+              <img src="keyboard-key-s.png" alt="">
+
             </button>
             <button type="button" class="btn btn-warning mr-5 btnWidth" onclick="onClickReset()">
-              RESET
+              RESET &nbsp&nbsp
+              <img src="letter-r-key-on-keyboard.png" alt="">
+
             </button>
             <button type="button" class="btn btn-success btnWidth" onclick="onClickLap()">
-              Lap
+              Lap &nbsp&nbsp
+              <img src="letter-l.png" alt="">
             </button>
           </div>
         </div>
@@ -58,6 +70,7 @@
       </div>
     </div>
   </main>
+  <div class="slider-thumb"></div>
   <script src="main.js" async></script>
 </body>
 
