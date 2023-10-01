@@ -4,7 +4,7 @@ const displayMilSecond = document.getElementById("displayMilSecond");
 const maxLimit = 9;
 const lapTableBody = document.getElementById("tableBody");
 
-var intervalId;
+var intervalId=0;
 var lapCount = 0;
 
 
@@ -27,15 +27,19 @@ const deleteTableRows=()=>{
 }
 
 var onClickStart = () => {
-  intervalId = setInterval(startTimer, 10);
+  if(intervalId==0){
+    intervalId = setInterval(startTimer, 10);
+  }
 };
 
 var onClickStop = () => {
   clearInterval(intervalId);
+  intervalId=0;
 };
 
 var onClickReset = () => {
   clearInterval(intervalId);
+  intervalId=0;
   lapCount=0;
   displayMilSecond.innerText = "00";
   displaySecond.innerText = "00";
