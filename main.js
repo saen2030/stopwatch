@@ -5,6 +5,7 @@ const maxLimit = 9;
 const lapTableBody = document.getElementById("tableBody");
 var intervalId = 0;
 
+// singleToDoubleDigitConverter function takes a single digit number and appends 0 infront of it.
 const singleToDoubleDigitConverter = (digit) => {
   if (digit.length == 1) {
     let doubleDigit = "0" + digit;
@@ -14,6 +15,7 @@ const singleToDoubleDigitConverter = (digit) => {
   }
 };
 
+// deleteTableRows function takes a table body and deletes all its rows
 const deleteTableRows = (tableBody) => {
   let allBodyRows = Array.from(tableBody.children);
   for (let i = 0; i < allBodyRows.length; i++) {
@@ -85,6 +87,7 @@ var startTimer = () => {
   }
 };
 
+// key bindings
 var spaceKeyToggler = true;
 document.addEventListener(
   "keyup",

@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StopWatch</title>
+  <link rel="icon" href="wristwatch.png">
   <link rel="stylesheet" href="style.css" />
 
   <!-- Bootstrap CSS -->
@@ -20,7 +21,8 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand font-weight-bold mx-auto" href="#" style="font-family: 'Press Start 2P', cursive;font-style: italic;">Stopwatch</a>
+    <a class="navbar-brand font-weight-bold mx-auto" href="#"
+      style="font-family: 'Press Start 2P', cursive;font-style: italic;">Stopwatch</a>
   </nav>
   <main>
     <div class="container mt-5">
@@ -33,24 +35,24 @@
             <div>:</div>
             <div id="displayMilSecond">00</div>
           </div>
-          <div class="buttonRow justify-content-center">
-            <button type="button" class="btn btn-primary mr-5 btnWidth" onclick="onClickStart()">
+          <div class="buttonRow justify-content-space-around">
+            <button type="button" class="btn btn-primary btnWidth" onclick="onClickStart()">
               START &nbsp&nbsp
               <img src="keyboard-key-s.png" alt="">
             </button>
-            <button type="button" class="btn btn-secondary mr-5 btnWidth" onclick="onClickStop()">
+            <button type="button" class="btn btn-secondary  btnWidth" onclick="onClickStop()">
               STOP &nbsp&nbsp
               <img src="keyboard-key-s.png" alt="">
 
             </button>
-            <button type="button" class="btn btn-warning mr-5 btnWidth" onclick="onClickReset()">
+            <button type="button" class="btn btn-success btnWidth " onclick="onClickLap()">
+              Lap &nbsp&nbsp
+              <img src="letter-l.png" alt="">
+            </button>
+            <button type="button" class="btn btn-danger btnWidth" onclick="onClickReset()">
               RESET &nbsp&nbsp
               <img src="letter-r-key-on-keyboard.png" alt="">
 
-            </button>
-            <button type="button" class="btn btn-success btnWidth" onclick="onClickLap()">
-              Lap &nbsp&nbsp
-              <img src="letter-l.png" alt="">
             </button>
           </div>
         </div>

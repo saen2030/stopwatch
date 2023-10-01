@@ -1,28 +1,32 @@
-.customMarginTop{
-    margin-top:20vh;
-}
-.btnWidth{
-    width:200px;
-    
-}
-
-.displayRow{
-    display: flex;
-    justify-content: center;
-    font-size: 15vw;
-
-}
-
-.buttonRow{
-    display: flex;
-    justify-content: center;
-}
-body{
+/* background pattern */
+body {
     background-image: radial-gradient(#ecede9 2px, transparent 2px), radial-gradient(#ecede9 2px, transparent 2px);
     background-size: 100px 100px;
     background-position: 0 0, 50px 50px;
     background-color: #ffffff;
 }
+
+.customMarginTop {
+    margin-top: 20vh;
+}
+
+.btnWidth {
+    width: 200px;
+}
+
+.displayRow {
+    display: flex;
+    justify-content: center;
+    font-size: 15vw;
+}
+
+.buttonRow {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/* animated slider-thumb */
 .slider-thumb::before {
     position: fixed;
     content: "";
@@ -37,21 +41,46 @@ body{
     display: block;
     z-index: -1;
     -webkit-animation: sliderShape 5s linear infinite;
-  }
-  @keyframes sliderShape{
-    0%,100%{
-    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-      transform: translate3d(0,0,0) rotateZ(0.01deg);
+}
+
+@keyframes sliderShape {
+
+    0%,
+    100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
     }
-    34%{
+
+    34% {
         border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-      transform:  translate3d(0,5px,0) rotateZ(0.01deg);
+        transform: translate3d(0, 5px, 0) rotateZ(0.01deg);
     }
-    50%{
-      transform: translate3d(0,0,0) rotateZ(0.01deg);
+
+    50% {
+        transform: translate3d(0, 0, 0) rotateZ(0.01deg);
     }
-    67%{
-      border-radius: 100% 60% 60% 100% / 100% 100% 60% 60% ;
-      transform: translate3d(0,-3px,0) rotateZ(0.01deg);
+
+    67% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+        transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
     }
-  }
+}
+
+/* for mobile devices smaller than 500px */
+@media screen and (max-width: 500px) {
+    .displayRow {
+        font-size: 20vw;
+        margin-bottom: 10vh;
+    }
+
+    .buttonRow button {
+        width: 80vw;
+        font-size: 6vw;
+    }
+
+    .buttonRow {
+        flex-direction: column;
+        align-items: center;
+        height: 40vh;
+    }
+}
