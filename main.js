@@ -3,13 +3,10 @@ const displayMinute = document.getElementById("displayMinute");
 const displayMilSecond = document.getElementById("displayMilSecond");
 const maxLimit = 9;
 const lapTableBody = document.getElementById("tableBody");
-
 var intervalId=0;
-var lapCount = 0;
 
-
-const toDoubleDigitConverter = (digit) => {
-  if (digit.length < 2) {
+const singleToDoubleDigitConverter = (digit) => {
+  if (digit.length == 1 ) {
     let doubleDigit = "0" + digit;
     return doubleDigit;
   } else {
@@ -17,13 +14,11 @@ const toDoubleDigitConverter = (digit) => {
   }
 };
 
-const deleteTableRows=()=>{
-  // Array.from(lapTableBody.children).forEach(c => c.remove())
-  let allBodyRows=Array.from(lapTableBody.children);
+const deleteTableRows=(tableBody)=>{
+  let allBodyRows=Array.from(tableBody.children);
   for(let i=0;i<allBodyRows.length;i++){
     allBodyRows[i].remove();
   }
-  
 }
 
 var onClickStart = () => {
@@ -44,16 +39,17 @@ var onClickReset = () => {
   displayMilSecond.innerText = "00";
   displaySecond.innerText = "00";
   displayMinute.innerText = "00";
-  deleteTableRows();
+  deleteTableRows(lapTableBody);
 };
 
+var lapCount = 0;
 var onClickLap = () => {
   let row = lapTableBody.insertRow(lapCount);
+  lapCount++;
   let cell1 = row.insertCell(0);
   let cell2 = row.insertCell(1);
   cell1.innerHTML = `${lapCount}`;
   cell2.innerHTML = `${displayMinute.innerText}:${displaySecond.innerText}:${displayMilSecond.innerText}`;
-  lapCount++;
 };
 
 var updateMinute = () => {
@@ -61,7 +57,7 @@ var updateMinute = () => {
     alert("You need to reset your clock !");
     clearInterval(intervalId);
   } else {
-    displayMinute.innerText = toDoubleDigitConverter(
+    displayMinute.innerText = singleToDoubleDigitConverter(
       (parseInt(displayMinute.innerText) + 1).toString()
     );
   }
@@ -72,7 +68,7 @@ var updateSecond = () => {
     displaySecond.innerText = "00";
     updateMinute();
   } else {
-    displaySecond.innerText = toDoubleDigitConverter(
+    displaySecond.innerText = singleToDoubleDigitConverter(
       (parseInt(displaySecond.innerText) + 1).toString()
     );
   }
@@ -83,8 +79,32 @@ var startTimer = () => {
     displayMilSecond.innerText = "00";
     updateSecond();
   } else {
-    displayMilSecond.innerText = toDoubleDigitConverter(
+    displayMilSecond.innerText = singleToDoubleDigitConverter(
       (parseInt(displayMilSecond.innerText) + 1).toString()
     );
   }
 };
+
+
+var spaceKeyToggler=true;
+document.addEventListener(
+  "keyup",
+  (event) => {
+    event.preventDefault();
+    const keyName = event.key;
+    if (keyName === "s" && spaceKeyToggler==true ) {
+      spaceKeyToggler=false;
+      onClickStart();
+    }else if(keyName === "s" && spaceKeyToggler==false){
+      spaceKeyToggler=true;
+      onClickStop();
+    }
+
+    if (keyName === "r") {
+      onClickReset();
+    }
+    if (keyName === "l") {
+      onClickLap();
+    }
+  }
+);
