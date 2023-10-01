@@ -1,12 +1,14 @@
 const displaySecond = document.getElementById("displaySecond");
 const displayMinute = document.getElementById("displayMinute");
 const displayMilSecond = document.getElementById("displayMilSecond");
+const maxLimit = 9;
+const lapTableBody = document.getElementById("tableBody");
 
-// alert(typeof(parseInt(currentMilSecondValue.innerText)))
 var intervalId;
-var maxLimit = 9;
+var lapCount = 0;
 
-var toDoubleDigitConverter = (digit) => {
+
+const toDoubleDigitConverter = (digit) => {
   if (digit.length < 2) {
     let doubleDigit = "0" + digit;
     return doubleDigit;
@@ -15,19 +17,39 @@ var toDoubleDigitConverter = (digit) => {
   }
 };
 
-var onClickStop = () => {
-  clearInterval(intervalId);
-};
+const deleteTableRows=()=>{
+  // Array.from(lapTableBody.children).forEach(c => c.remove())
+  let allBodyRows=Array.from(lapTableBody.children);
+  for(let i=0;i<allBodyRows.length;i++){
+    allBodyRows[i].remove();
+  }
+  
+}
 
 var onClickStart = () => {
   intervalId = setInterval(startTimer, 10);
 };
 
+var onClickStop = () => {
+  clearInterval(intervalId);
+};
+
 var onClickReset = () => {
   clearInterval(intervalId);
-  displayMilSecond.innerText="00";
-  displaySecond.innerText="00";
-  displayMinute.innerText="00";
+  lapCount=0;
+  displayMilSecond.innerText = "00";
+  displaySecond.innerText = "00";
+  displayMinute.innerText = "00";
+  deleteTableRows();
+};
+
+var onClickLap = () => {
+  let row = lapTableBody.insertRow(lapCount);
+  let cell1 = row.insertCell(0);
+  let cell2 = row.insertCell(1);
+  cell1.innerHTML = `${lapCount}`;
+  cell2.innerHTML = `${displayMinute.innerText}:${displaySecond.innerText}:${displayMilSecond.innerText}`;
+  lapCount++;
 };
 
 var updateMinute = () => {

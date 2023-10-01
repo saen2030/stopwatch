@@ -12,3 +12,8 @@
     font-size: 15vw;
 
 }
+
+.buttonRow{
+    display: flex;
+    justify-content: center;
+}
