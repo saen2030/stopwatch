@@ -1,7 +1,7 @@
-[![N|Solid](https://th.bing.com/th/id/OIP.GuhO1qcxy7T-gQJoAfZWWgHaEO?w=281&h=180&c=7&r=0&o=5&dpr=1.4&pid=1.7)
-# Frontend Project 1: Stopwatch
+
+#Stopwatch
 ----------------------------------
-#### Test 1 of 2 for Frontend skill test.
+Frontend skill test.
 
 This is a simple web based stopwatch built with HTML,CSS, Bootstrap and vanilla Js.
 ## Features
